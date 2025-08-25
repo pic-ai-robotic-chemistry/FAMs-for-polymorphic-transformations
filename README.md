@@ -1,7 +1,7 @@
 # FAMs-for-polymorphic-transformations
 This repository contains the implementation of our ELoRA for Equivariant GNNs:
 
-The code is built upon the e3nn library and the MACE framework.
+The code is built upon the e3nn library and the MACE and SevenNet framework.
 
 ## ELoRA for fine-tune foundation models of MACE 
 ```bash
@@ -36,6 +36,7 @@ mace_run_train \
     --seed=123 \
     --save_cpu 
 ```
+## ELoRA for fine-tune foundation models of SevenNet 
 
 
 
