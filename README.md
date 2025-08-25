@@ -1,6 +1,4 @@
 # FAMs-for-polymorphic-transformations
-ELoRA: Low-Rank Adaptation for Equivariant GNNs
-
 This repository contains the implementation of our ELoRA for Equivariant GNNs:
 
 The code is built upon the e3nn library and the MACE framework.
