@@ -80,7 +80,8 @@ mace_run_train \
     --seed=123 \
     --save_cpu 
 ```
-## ELoRA for fine-tune foundation models of SevenNet 
+## ELoRA for fine-tune foundation models of SevenNet
+Run the CLI train_sevenn.py (example script provided in this repo) to fine-tune SevenNet. Example:
 ```bash
 python train_sevenn.py \
        --pretrained 7net-0 \
@@ -95,8 +96,4 @@ python train_sevenn.py \
        --train-rescale \
        --out ./checkpoints/Elora_sevennet.pth
 ```
-
-
-
-You may adjust the hyperparameters or input files to suit your specific dataset or evaluation setting.
 
