@@ -6,7 +6,7 @@ The code is built upon the e3nn library for the MACE and SevenNet framework and 
 ## Data sample (.extxyz format)
 Our data has been submitted on the figshare when submitting our paper.
 '''bash
-36
+36 \
 Properties=species:S:1:pos:R:3:forces:R:3 REF_energy=-203.18678317 Lattice="7.75640000 0.00000000 0.00000000 -0.11045220 10.71853092 0.00000000 -0.17760577 -3.80304806 11.13449525" \
 H       7.36468000     10.21931000      1.09007000      0.07810700     -0.01555800      0.12200500 \
 H       5.27654000      0.36900000      9.10546000      0.10059300      0.06820700      0.00643600 \
@@ -46,7 +46,8 @@ I       4.23892000      4.90632000      2.09340000     -0.18968900     -0.010577
 I       2.59642000     -0.85314000      2.85555000     -0.11438500      0.20898100     -0.15406500 \
 '''
 
-## ELoRA for fine-tune foundation models of MACE 
+## ELoRA for fine-tune foundation models of MACE
+Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
 ```bash
 mace_run_train \
     --name="MACE_model" \
