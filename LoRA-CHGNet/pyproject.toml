@@ -1,0 +1,119 @@
+[project]
+name = "chgnet"
+version = "0.4.0"
+description = "Pretrained Universal Neural Network Potential for Charge-informed Atomistic Modeling"
+authors = [{ name = "Bowen Deng", email = "bowendeng@berkeley.edu" }]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "Modified BSD" }
+dependencies = [
+    "ase>=3.23.0",
+    "cython>=3",
+    "numpy>=1.26",
+    "nvidia-ml-py3>=7.352.0",
+    "pymatgen>=2024.9.10",
+    "torch>=2.4.1",
+    "typing-extensions>=4.12",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.optional-dependencies]
+test = ["pytest-cov>=4", "pytest>=8", "wandb>=0.17"]
+# needed to run interactive example notebooks
+examples = ["crystal-toolkit>=2023.11.3", "pandas>=2.2"]
+docs = ["lazydocs>=0.4"]
+logging = ["wandb>=0.17.2"]
+dispersion = ["dftd4>=3.6", "torch-dftd>=0.4"]
+
+[project.urls]
+Source = "https://github.com/CederGroupHub/chgnet"
+Package = "https://pypi.org/project/chgnet"
+
+[tool.setuptools.packages]
+find = { include = ["chgnet*"], exclude = ["tests", "tests*"] }
+
+[tool.setuptools.package-data]
+"chgnet" = ["*.json", "py.typed"]
+"chgnet.graph.fast_converter_libraries" = ["*"]
+"chgnet.pretrained" = ["*", "**/*"]
+
+[build-system]
+requires = ["Cython", "numpy>=2.0.0", "setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+target-version = "py310"
+output-format = "concise"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN001",  # TODO add missing type annotations
+    "ANN003",  # Missing type annotation for **{name}
+    "ANN101",  # Missing type annotation for {name} in method
+    "ANN102",  # Missing type annotation for {name} in classmethod
+    "B019",    # Use of functools.lru_cache on methods can lead to memory leaks
+    "BLE001",  # use of general except Exception
+    "C408",    # unnecessary-collection-call
+    "C901",    # function is too complex
+    "COM812",  # trailing comma missing
+    "D100",    # Missing docstring in public module
+    "D104",    # Missing docstring in public package
+    "D205",    # 1 blank line required between summary line and description
+    "E731",    # do not assign a lambda expression, use a def
+    "EM",      # error message related
+    "ERA001",  # found commented out code
+    "NPY002",  # TODO replace legacy np.random.seed
+    "PLR0912", # too many branches
+    "PLR0913", # too many args in function def
+    "PLR0915", # too many statements
+    "PLW2901", # Outer for loop variable overwritten by inner assignment target
+    "PTH",     # prefer Path to os.path
+    "S108",    # Probable insecure usage of temporary file or directory
+    "S301",    # pickle can be unsafe
+    "S310",    # Audit URL open for permitted schemes
+    "S311",    # pseudo-random generators not suitable for cryptographic purposes
+    "TRY003",  # Avoid specifying long messages outside the exception class
+    "TRY300",  # Consider moving this statement to an else block
+]
+pydocstyle.convention = "google"
+isort.required-imports = ["from __future__ import annotations"]
+isort.split-on-trailing-comma = false
+isort.known-third-party = ["wandb"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.per-file-ignores]
+"site/*" = ["INP001", "S602"]
+"tests/*" = [
+    "ANN201",
+    "D100",
+    "D103",
+    "DOC201",  # doc string missing Return section
+    "FBT001",
+    "FBT002",
+    "INP001",
+    "PLR2004",
+    "S101",
+]
+# E402 Module level import not at top of file
+"examples/*" = ["E402", "I002", "INP001", "N816", "S101", "T201"]
+"chgnet/**/*" = ["T201"]
+"__init__.py" = ["F401"]
+
+[tool.coverage.run]
+source = ["chgnet"]
+
+[tool.coverage.report]
+omit = ["tests/*"]
