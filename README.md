@@ -1,10 +1,16 @@
 # FAMs-for-polymorphic-transformations
-This repository contains the implementation of our ELoRA for Equivariant GNNs and LoRA for Invariant GNN:
 
-The code is built upon the e3nn library for the MACE and SevenNet framework and peft library for CHGNet framework.
+Lightweight repository implementing ELoRA for Equivariant GNNs and LoRA for invariant GNNs.
+This codebase demonstrates fine-tuning foundation models (MACE, SevenNet, CHGNet) with low-rank adapters.
+
+MACE support is built on the e3nn ecosystem and the MACE codebase.
+
+SevenNet support is built on e3nn ecosystem and SevenNet framework.
+
+CHGNet support uses the peft style adapters.
 
 ## Data sample (.extxyz format)
-Our data has been submitted on the figshare when submitting our paper.
+Below is a single-frame .extxyz example (kept from your original file). Use this as a template:
 ```bash
 36 \
 Properties=species:S:1:pos:R:3:forces:R:3 REF_energy=-203.18678317 Lattice="7.75640000 0.00000000 0.00000000 -0.11045220 10.71853092 0.00000000 -0.17760577 -3.80304806 11.13449525" \
@@ -45,6 +51,8 @@ I       0.45081000      4.59783000      0.78921000      0.40614000     -0.465460
 I       4.23892000      4.90632000      2.09340000     -0.18968900     -0.01057700     -0.11252300 \
 I       2.59642000     -0.85314000      2.85555000     -0.11438500      0.20898100     -0.15406500 \
 ```
+Our dataset was submitted to Figshare alongside the paper
+
 
 ## ELoRA for fine-tune foundation models of MACE
 Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
