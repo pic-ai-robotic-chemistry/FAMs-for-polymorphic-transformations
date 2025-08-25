@@ -3,6 +3,10 @@ This repository contains the implementation of our ELoRA for Equivariant GNNs an
 
 The code is built upon the e3nn library for the MACE and SevenNet framework and peft library for CHGNet framework.
 
+## Data sample (.extxyz format)
+
+
+
 ## ELoRA for fine-tune foundation models of MACE 
 ```bash
 mace_run_train \
