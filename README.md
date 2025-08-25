@@ -109,4 +109,7 @@ python train_sevenn.py \
        --train-rescale \
        --out ./checkpoints/Elora_sevennet.pth
 ```
+## LoRA for fine-tune foundation models of CHGNet
+Please read the readme in the LoRA-CHGNet directory.
+
 
