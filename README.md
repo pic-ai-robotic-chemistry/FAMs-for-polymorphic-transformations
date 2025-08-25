@@ -41,12 +41,15 @@ mace_run_train \
 python train_sevenn.py \
        --pretrained 7net-0 \
        --xyz xyz_files/atoms_7774.xyz \
-       --device cuda:6 \
+       --device cuda:0 \
+       --energy-weight 1.0 \
+       --force-weight 25.0 \
+       --stress-weight 0.01 \
        --epochs 100 \
        --batch-size 20 \
        --lr 0.004 \
        --train-rescale \
-       --out ./checkpoints/linear_lora.pth
+       --out ./checkpoints/Elora_sevennet.pth
 ```
 
 
