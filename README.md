@@ -1,7 +1,7 @@
 # FAMs-for-polymorphic-transformations
-This repository contains the implementation of our ELoRA for Equivariant GNNs:
+This repository contains the implementation of our ELoRA for Equivariant GNNs and LoRA for Invariant GNN:
 
-The code is built upon the e3nn library and the MACE and SevenNet framework.
+The code is built upon the e3nn library for the MACE and SevenNet framework and peft library for CHGNet framework.
 
 ## ELoRA for fine-tune foundation models of MACE 
 ```bash
