@@ -37,7 +37,17 @@ mace_run_train \
     --save_cpu 
 ```
 ## ELoRA for fine-tune foundation models of SevenNet 
-
+```bash
+python train_sevenn.py \
+       --pretrained 7net-0 \
+       --xyz xyz_files/atoms_7774.xyz \
+       --device cuda:6 \
+       --epochs 100 \
+       --batch-size 20 \
+       --lr 0.004 \
+       --train-rescale \
+       --out ./checkpoints/linear_lora.pth
+```
 
 
 
