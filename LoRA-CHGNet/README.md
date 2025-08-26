@@ -28,5 +28,3 @@ python default_tuning.py
 cd loratuning
 python lora_tuning.py
 ```
-    --mode increase
-```
