@@ -81,10 +81,9 @@ conda install numpy scipy matplotlib ase opt_einsum prettytable pandas e3nn
 
 # Clone and install MACE (and all required packages)
 git clone https://github.com/ACEsuit/mace.git](https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
-cd 
-pip install ./mace
+cd ELoRA-MACE_ELoRA
+pip install ./
 ```
-
 
 ## ELoRA for fine-tune foundation models of MACE
 Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
