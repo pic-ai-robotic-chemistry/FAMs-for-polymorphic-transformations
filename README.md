@@ -130,7 +130,6 @@ mace_run_train \
     --default_dtype="float64"\
     --device=cuda \
     --seed=123 \
-    --save_cpu
 ```
 
 ---
