@@ -80,7 +80,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvi
 conda install numpy scipy matplotlib ase opt_einsum prettytable pandas e3nn
 
 # Clone and install MACE (and all required packages)
-git clone https://github.com/ACEsuit/mace.git](https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
+git clone https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
 cd ELoRA-MACE_ELoRA
 pip install ./
 ```
@@ -128,8 +128,8 @@ mace_run_train \
 
 For CUDA version, refer to PyTorch's compatibility matrix: https://github.com/pytorch/pytorch/blob/main/RELEASE.md#release-compatibility-matrix
 ```bash
-git clone https://github.com/ACEsuit/mace.git](https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
-cd ELoRA-MACE_ELoRA
+git clone https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
+cd EloRA-SevenNet_ELoRA
 pip install ./
 ```
 
