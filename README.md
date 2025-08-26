@@ -1,5 +1,6 @@
-# FAMs-for-polymorphic-transformations
+# FAMs-for-polymorphic-transformations Project
 
+# **Paper Title**
 ## **Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals**
 
 Lightweight repository implementing **ELoRA** for equivariant GNNs and **LoRA** for invariant GNNs.  
@@ -85,7 +86,7 @@ cd ELoRA-MACE_ELoRA
 pip install ./
 ```
 
-## ELoRA for fine-tune foundation models of MACE
+## ELoRA for fine-tuning foundation models of MACE
 Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
 ```bash
 mace_run_train \
@@ -134,7 +135,7 @@ pip install ./
 ```
 
 
-## ELoRA for fine-tune foundation models of SevenNet
+## ELoRA for fine-tuning foundation models of SevenNet
 Run the CLI train_sevenn.py (example script provided in this repo) to fine-tune SevenNet. Example:
 ```bash
 python train_sevenn.py \
@@ -150,7 +151,17 @@ python train_sevenn.py \
        --train-rescale \
        --out ./checkpoints/Elora_sevennet.pth
 ```
-## LoRA for fine-tune foundation models of CHGNet
+## LoRA for fine-tuning foundation models of CHGNet
 Please read the readme in the LoRA-CHGNet directory.
 
+## Molecular dynamics of phase change
+```sh
+cd ../example
+python md_ramp_npt_task1_new_CHGNET.py \
+    --file_path alpha_212.cif \
+    --model /home/husiyu/Project/Finetuning/CHGNet/lora_tuned_models_v1/lora_v2_pth/epoch9_e4_f66_sNA_mNA \
+    --device "cuda:0" \
+    --xyz_filename "alpha_212_CHGNet_lora_tuned_v1_pt.xyz" \
+    --log_filename "alpha_212_CHGNet_lora_tuned_v1_pt.log" \
+    --traj_filename "alpha_212_CHGNet_lora_tuned_v1_pt.traj" \
 
