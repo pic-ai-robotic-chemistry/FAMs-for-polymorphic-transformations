@@ -199,4 +199,4 @@ python run_npt.py \
   --log_filename out.log \
   --traj_filename out.traj
 ```
-
+Please select and replace the force field calculator in the script as your wish.
