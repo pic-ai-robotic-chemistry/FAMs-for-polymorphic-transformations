@@ -59,7 +59,7 @@ I       2.59642000     -0.85314000      2.85555000     -0.11438500      0.208981
 Our dataset was submitted to Figshare alongside the paper: 
 ## **Efficient fine‑tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals** ##
 
-## Install ELoRA MACE environment
+## Install ELoRA_MACE environment
 Requirements:
 
 - Python >= 3.7
@@ -70,8 +70,8 @@ Requirements:
 To install from source using `conda`, follow the steps below:
 ```sh
 # Create a virtual environment and activate it
-conda create --name mace_env
-conda activate mace_env
+conda create --name ELoRA_mace_env
+conda activate ELoRA_mace_env
 
 # Install PyTorch
 conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
@@ -119,6 +119,21 @@ mace_run_train \
     --seed=123 \
     --save_cpu 
 ```
+
+## Install ELoRA_SevenNet environment
+### Requirements
+- Python >= 3.8
+- PyTorch >= 2.0.0, PyTorch =< 2.5.2
+- [Optional] cuEquivariance >= 0.4.0
+
+For CUDA version, refer to PyTorch's compatibility matrix: https://github.com/pytorch/pytorch/blob/main/RELEASE.md#release-compatibility-matrix
+```bash
+git clone https://github.com/ACEsuit/mace.git](https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
+cd ELoRA-MACE_ELoRA
+pip install ./
+```
+
+
 ## ELoRA for fine-tune foundation models of SevenNet
 Run the CLI train_sevenn.py (example script provided in this repo) to fine-tune SevenNet. Example:
 ```bash
