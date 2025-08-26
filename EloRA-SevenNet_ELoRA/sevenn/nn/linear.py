@@ -5,7 +5,8 @@ import torch.nn as nn
 from e3nn.nn import FullyConnectedNet
 from e3nn.o3 import Irreps, Linear
 from e3nn.util.jit import compile_mode
-
+import torch.nn.init as init
+import math
 import sevenn._keys as KEY
 from sevenn._const import AtomGraphDataType
 
@@ -25,9 +26,22 @@ class IrrepsLinear(nn.Module):
         data_key_modal_attr: str = KEY.MODAL_ATTR,
         num_modalities: int = 0,
         lazy_layer_instantiate: bool = True,
+        r: int = 16,
+        alpha: float = 16,
         **linear_kwargs,
     ) -> None:
         super().__init__()
+
+        # --- LoRA参数：仅这几行是新增 ---
+        self.r = r
+        self.alpha = alpha
+        self.lora_A = nn.Parameter(torch.zeros(irreps_in.dim, r))
+        self.lora_B = nn.Parameter(torch.zeros(r, irreps_out.dim))
+
+        init.kaiming_uniform_(self.lora_A, a=math.sqrt(5))
+        init.kaiming_uniform_(self.lora_B, a=math.sqrt(5))
+        # -----------------------------
+
         self.key_input = data_key_in
         if data_key_out is None:
             self.key_output = data_key_in
@@ -60,6 +74,7 @@ class IrrepsLinear(nn.Module):
         self.linear = self.linear_cls(
             self.irreps_in, self.irreps_out, **self.linear_kwargs
         )
+
         self.layer_instantiated = True
 
     def set_num_modalities(self, num_modalities: int) -> None:
@@ -95,9 +110,15 @@ class IrrepsLinear(nn.Module):
         assert self.linear is not None, 'Layer is not instantiated'
         if self.num_modalities > 1:
             data = self._patch_modal_to_data(data)
+        orgin_output = self.linear(data[self.key_input])
 
-        data[self.key_output] = self.linear(data[self.key_input])
+        # LoRA只在这里用
+        lora_update = (self.alpha / self.r) * (self.lora_A @ self.lora_B)
+        out_lora = data[self.key_input] @ lora_update
+
+        data[self.key_output] = orgin_output + out_lora
         return data
+
 
 
 @compile_mode('script')
