@@ -1,6 +1,7 @@
 # FAMs-for-polymorphic-transformations Project
 
-## **Paper Title**:<br>***Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals*** [https://chemrxiv.org/engage/chemrxiv/article-details/688c5c5823be8e43d638c3b1] <br> 
+## **Paper Title**:<br>***Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals*** <br>
+[https://chemrxiv.org/engage/chemrxiv/article-details/688c5c5823be8e43d638c3b1]<br> 
 <img src="images/TOC.png" alt="TOC" width="500" />
 
 Lightweight repository implementing **ELoRA** for equivariant GNNs and **LoRA** for invariant GNNs.  
