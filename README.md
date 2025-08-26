@@ -58,8 +58,11 @@ I       2.59642000     -0.85314000      2.85555000     -0.11438500      0.208981
 
 Our dataset was submitted to Figshare alongside the paper.
 
+---
+
 ## Install ELoRA_MACE environment
-Requirements:
+
+**Requirements:**
 
 - Python >= 3.7
 - [PyTorch](https://pytorch.org/) >= 1.12 **(training with float64 is not supported with PyTorch 2.1 but is supported with 2.2 and later.)**.
@@ -67,6 +70,7 @@ Requirements:
 (for openMM, use Python = 3.9)
 
 To install from source using `conda`, follow the steps below:
+
 ```sh
 # Create a virtual environment and activate it
 conda create --name ELoRA_mace_env
@@ -84,7 +88,10 @@ cd ELoRA-MACE_ELoRA
 pip install ./
 ```
 
+---
+
 ## ELoRA for fine-tuning foundation models of MACE
+
 Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
 ```bash
 mace_run_train \
@@ -116,25 +123,36 @@ mace_run_train \
     --default_dtype="float64"\
     --device=cuda \
     --seed=123 \
-    --save_cpu 
+    --save_cpu
 ```
 
+---
+
 ## Install ELoRA_SevenNet environment
+
 ### Requirements
 - Python >= 3.8
 - PyTorch >= 2.0.0, PyTorch =< 2.5.2
 - [Optional] cuEquivariance >= 0.4.0
 
 For CUDA version, refer to PyTorch's compatibility matrix: https://github.com/pytorch/pytorch/blob/main/RELEASE.md#release-compatibility-matrix
+
 ```bash
+# Create a virtual environment and activate it
+conda create --name ELoRA_SevenNet_env
+conda activate ELoRA_SevenNet_env
+
 git clone https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
 cd EloRA-SevenNet_ELoRA
 pip install ./
 ```
 
+---
 
 ## ELoRA for fine-tuning foundation models of SevenNet
+
 Run the CLI train_sevenn.py (example script provided in this repo) to fine-tune SevenNet. Example:
+
 ```bash
 python train_sevenn.py \
        --pretrained 7net-0 \
@@ -149,15 +167,25 @@ python train_sevenn.py \
        --train-rescale \
        --out ./checkpoints/Elora_sevennet.pth
 ```
+
+---
+
 ## LoRA for fine-tuning foundation models of CHGNet
+
 Please read the readme in the LoRA-CHGNet directory.
 
+---
+
 ## Requirment for running Molecular dynamics simulation
+
 ```text
 numpy, ase, pymatgen, calculator(MACE, CHGNet, SevenNet), argparse
 ```
 
+---
+
 ## Molecular dynamics simulation of phase change
+
 ```sh
 python run_npt.py \
   --file_path path/to/structure.cif \
@@ -169,4 +197,5 @@ python run_npt.py \
   --xyz_filename out.xyz \
   --log_filename out.log \
   --traj_filename out.traj
+```
 
