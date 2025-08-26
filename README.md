@@ -6,6 +6,9 @@ Muyu Lu et al., *ChemRxiv* (2025). DOI: [10.26434/chemrxiv-2025-499st](https://d
 
 <img src="images/TOC.png" alt="TOC" width="500" />
 
+---
+
+## Main
 Lightweight repository implementing **ELoRA** for equivariant GNNs and **LoRA** for invariant GNNs.  
 This codebase demonstrates fine-tuning foundation models (MACE, SevenNet, CHGNet) with low-rank adapters.
 
