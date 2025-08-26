@@ -4,7 +4,7 @@
 **Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals**  
 Muyu Lu et al., *ChemRxiv* (2025). DOI: [10.26434/chemrxiv-2025-499st](https://doi.org/10.26434/chemrxiv-2025-499st) <br> 
 
-<img src="images/TOC.png" alt="TOC" width="500" />
+<img src="images/TOC.png" alt="TOC" width="80%" />
 
 ---
 
