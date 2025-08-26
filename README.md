@@ -212,6 +212,8 @@ This project is licensed under the MIT License - see the (./LICENSE) file for de
 
 If you use this code in your research, please cite:
 
+Article (preprint):
+```bibtex
 @article{Lu2025Efficient,
   author  = {Muyu Lu and Siyu Hu},
   title   = {Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals},
