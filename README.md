@@ -201,17 +201,26 @@ python run_npt.py \
 ```
 Please select and replace the force field calculator in the script as your wish.
 
+---
+
 ## License
 This project is licensed under the MIT License - see the (./LICENSE) file for details.
+
+---
 
 ## Citation
 
 If you use this code in your research, please cite:
 
-**Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals**  
-Muyu Lu, Siyu Hu, Chengxi Zhao, Chen Wang, Weile Jia, Guangming Tan, Jun Jiang, Linjiang Chen  
-*ChemRxiv*, 2025, Version 1.  
-DOI: [10.26434/chemrxiv-2025-499st](https://chemrxiv.org/engage/chemrxiv/article-details/688c5c5823be8e43d638c3b1)  
-License: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+@article{Lu2025Efficient,
+  author  = {Muyu Lu and Siyu Hu},
+  title   = {Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals},
+  journal = {ChemRxiv},
+  year    = {2025},
+  doi     = {10.26434/chemrxiv-2025-499st},
+  url     = {https://chemrxiv.org/engage/chemrxiv/article-details/688c5c5823be8e43d638c3b1},
+  note    = {Working Paper, Version 1, posted 05 Aug 2025}
+}
+
 
 
