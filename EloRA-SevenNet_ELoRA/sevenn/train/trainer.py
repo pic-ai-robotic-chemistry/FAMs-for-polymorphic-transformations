@@ -71,6 +71,12 @@ class Trainer:
         self.device = torch.device(device)
         self.distributed = distributed
 
+        for n, para in self.model.named_parameters():
+            if "lora" in n:
+                para.requires_grad = True
+            else:
+                para.requires_grad = False
+            print(n)
         optimizer_args = optimizer_args or {}
         param = [p for p in self.model.parameters() if p.requires_grad]
         self.optimizer = optimizer_cls(param, **optimizer_args)
@@ -149,6 +155,7 @@ class Trainer:
         """
         if is_train:
             self.model.train()
+            print("it is training")
         else:
             self.model.eval()
 
