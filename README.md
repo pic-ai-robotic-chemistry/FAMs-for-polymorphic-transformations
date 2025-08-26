@@ -5,7 +5,7 @@
 Lightweight repository implementing **ELoRA** for equivariant GNNs and **LoRA** for invariant GNNs.  
 This codebase demonstrates fine-tuning foundation models (MACE, SevenNet, CHGNet) with low-rank adapters.
 
-- **MACE** support is built on the *e3nn* ecosystem and the MACE codebase.  
+- **MACE** support is built on the *e3nn* ecosystem and the MACE framework.  
 - **SevenNet** support is built on the *e3nn* ecosystem and the SevenNet framework.  
 - **CHGNet** support uses PEFT-style adapters and CHGNet framework.
 
