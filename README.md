@@ -152,14 +152,21 @@ python train_sevenn.py \
 ## LoRA for fine-tuning foundation models of CHGNet
 Please read the readme in the LoRA-CHGNet directory.
 
-## Molecular dynamics of phase change
+## Requirment for running Molecular dynamics simulation
+```text
+numpy, ase, pymatgen, calculator(MACE, CHGNet, SevenNet), argparse
+```
+
+## Molecular dynamics simulation of phase change
 ```sh
-cd ../example
-python md_ramp_npt_task1_new_CHGNET.py \
-    --file_path alpha_212.cif \
-    --model /home/husiyu/Project/Finetuning/CHGNet/lora_tuned_models_v1/lora_v2_pth/epoch9_e4_f66_sNA_mNA \
-    --device "cuda:0" \
-    --xyz_filename "alpha_212_CHGNet_lora_tuned_v1_pt.xyz" \
-    --log_filename "alpha_212_CHGNet_lora_tuned_v1_pt.log" \
-    --traj_filename "alpha_212_CHGNet_lora_tuned_v1_pt.traj" \
+python run_npt.py \
+  --file_path path/to/structure.cif \
+  --model path/to/mace_model \
+  --device cpu \
+  --mode increase \ #increase or decrease pressure
+  --total_time_fs 3000000 \
+  --ramp_time_fs 2000000 \
+  --xyz_filename out.xyz \
+  --log_filename out.log \
+  --traj_filename out.traj
 
