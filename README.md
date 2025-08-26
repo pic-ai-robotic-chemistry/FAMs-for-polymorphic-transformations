@@ -59,6 +59,33 @@ I       2.59642000     -0.85314000      2.85555000     -0.11438500      0.208981
 Our dataset was submitted to Figshare alongside the paper: 
 ## **Efficient fine‑tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals** ##
 
+## Install ELoRA MACE environment
+Requirements:
+
+- Python >= 3.7
+- [PyTorch](https://pytorch.org/) >= 1.12 **(training with float64 is not supported with PyTorch 2.1 but is supported with 2.2 and later.)**.
+
+(for openMM, use Python = 3.9)
+
+To install from source using `conda`, follow the steps below:
+```sh
+# Create a virtual environment and activate it
+conda create --name mace_env
+conda activate mace_env
+
+# Install PyTorch
+conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
+
+# (optional) Install MACE's dependencies from Conda as well
+conda install numpy scipy matplotlib ase opt_einsum prettytable pandas e3nn
+
+# Clone and install MACE (and all required packages)
+git clone https://github.com/ACEsuit/mace.git](https://github.com/pic-ai-robotic-chemistry/FAMs-for-polymorphic-transformations.git
+cd 
+pip install ./mace
+```
+
+
 ## ELoRA for fine-tune foundation models of MACE
 Example mace_run_train invocation for fine-tuning a MACE foundation model using ELoRA. Flags below are the example you provided; adjust file paths and hyperparameters for your dataset.\
 ```bash
