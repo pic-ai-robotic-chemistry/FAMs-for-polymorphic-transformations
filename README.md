@@ -7,7 +7,7 @@ This codebase demonstrates fine-tuning foundation models (MACE, SevenNet, CHGNet
 
 - **MACE** support is built on the *e3nn* ecosystem and the MACE codebase.  
 - **SevenNet** support is built on the *e3nn* ecosystem and the SevenNet framework.  
-- **CHGNet** support uses PEFT-style adapters.
+- **CHGNet** support uses PEFT-style adapters and CHGNet framework.
 
 ---
 
