@@ -1,7 +1,6 @@
 # FAMs-for-polymorphic-transformations Project
 
-# **Paper Title**
-## **Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals**
+## **Paper Title: Efficient fine-tuning of foundation atomistic models for reversible polymorphic phase transitions in organic molecular crystals**
 
 Lightweight repository implementing **ELoRA** for equivariant GNNs and **LoRA** for invariant GNNs.  
 This codebase demonstrates fine-tuning foundation models (MACE, SevenNet, CHGNet) with low-rank adapters.
