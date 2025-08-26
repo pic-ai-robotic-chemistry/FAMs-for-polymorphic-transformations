@@ -33,6 +33,20 @@ from chgnet.trainer import Trainer
 # Load pretrained CHGNet
 chgnet = CHGNet.load()
 
+# Optionally fix the weights of some layers
+# for layer in [
+#     chgnet.atom_embedding,
+#     chgnet.bond_embedding,
+#     chgnet.angle_embedding,
+#     chgnet.bond_basis_expansion,
+#     chgnet.angle_basis_expansion,
+#     chgnet.atom_conv_layers[:-1],
+#     chgnet.bond_conv_layers,
+#     chgnet.angle_layers
+# ]:
+#     for param in layer.parameters():
+#         param.requires_grad = False
+
 from peft import LoraConfig, get_peft_model
 
 # composition_model
@@ -276,14 +290,14 @@ from peft import LoraConfig, get_peft_model
 
 # 定义 LoRA 配置
 lora_config = LoraConfig(
-    r=8,  # 低秩矩阵的秩
-    lora_alpha=16,  # 缩放因子
-    target_modules=["composition_model.fc",
-                    "bond_embedding",                
-                    "bond_weights_ag",
-                    "bond_weights_bg",
-                    "angle_embedding",
-                    "atom_conv_layers.0.twoBody_atom.mlp_core.layers.0",
+    r=32,  # 低秩矩阵的秩
+    lora_alpha=4,  # 缩放因子
+    # "composition_model.fc",
+    #                 "bond_embedding",                
+    #                 "bond_weights_ag",
+    #                 "bond_weights_bg",
+    #                 "angle_embedding",
+    target_modules=["atom_conv_layers.0.twoBody_atom.mlp_core.layers.0",
                     "atom_conv_layers.0.twoBody_atom.mlp_core.layers.3",
                     "atom_conv_layers.0.twoBody_atom.mlp_gate.layers.0",
                     "atom_conv_layers.0.twoBody_atom.mlp_gate.layers.3",
@@ -333,26 +347,15 @@ lora_config = LoraConfig(
     bias="none",
 )
 
-for name, module in chgnet.named_modules():
-    print(name, module)
-# import ipdb; ipdb.set_trace()
-
-
 
 # 将 LoRA 应用到模型
 chgnet = get_peft_model(chgnet, lora_config)
-chgnet.save_pretrained("lora_model")
 
-# Optionally fix the weights of some layers
-# for layer in [
-#     chgnet.atom_embedding,
-#     chgnet.bond_embedding,
-#     chgnet.angle_embedding,
-#     chgnet.bond_basis_expansion,
-#     chgnet.angle_basis_expansion,
-# ]:
-#     for param in layer.parameters():
-#         param.requires_grad = False
+# for name, module in chgnet.named_modules():
+#     print(name, module)
+# for name, param in chgnet.named_parameters():
+#     print(name, param.requires_grad)
+# import ipdb; ipdb.set_trace()
 
 # Define Trainer
 trainer = Trainer(
@@ -361,16 +364,15 @@ trainer = Trainer(
     optimizer="Adam",
     scheduler="CosLR",
     criterion="MSE",
-    epochs=1,
+    epochs=2,
     learning_rate=1e-2,
     use_device="cuda",
     print_freq=6,
     is_lora=True,
 )
 
-trainer.train(train_loader, val_loader, test_loader, train_composition_model=True)
+trainer.train(train_loader, val_loader, test_loader)
+# train_composition_model=True
 
 # model = trainer.model
 # best_model = trainer.best_model  # best model based on validation energy MAE
-
-
